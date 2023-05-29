@@ -10,10 +10,10 @@ class GamesController < ApplicationController
   def score
     @set = params[:array_of_letters].chars
     @trial = params[:word].upcase.chars
-    if trial_existence_checker(params[:word]) == false
-      @results = "Sorry but #{params[:word].upcase} does not seem to be a valid English word..."
-    elsif trial_in_set_checker(@trial, @set) == false
+    if trial_in_set_checker(@trial, @set) == false
       @results = "Sorry but #{params[:word].upcase} can't be build out of #{params[:array_of_letters]}"
+    elsif trial_existence_checker(params[:word]) == false
+      @results = "Sorry but #{params[:word].upcase} does not seem to be a valid English word..."
     else
       @results = "Congratulations! #{params[:word].upcase} is a valid English word!"
     end
