@@ -11,11 +11,11 @@ class GamesController < ApplicationController
     @set = params[:array_of_letters].chars
     @trial = params[:word].upcase.chars
     if trial_existence_checker(params[:word]) == false
-      @results = "Sorry but #{params[:word]} does not seem to be a valid English word..."
+      @results = "Sorry but #{params[:word].upcase} does not seem to be a valid English word..."
     elsif trial_in_set_checker(@trial, @set) == false
-      @results = "Sorry but #{params[:word]} can't be build out of #{params[:array_of_letters]}"
+      @results = "Sorry but #{params[:word].upcase} can't be build out of #{params[:array_of_letters]}"
     else
-      @results = "Congratulations! #{params[:word]} is a valid English word!"
+      @results = "Congratulations! #{params[:word].upcase} is a valid English word!"
     end
   end
 
